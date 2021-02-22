@@ -12,6 +12,18 @@ int NaiveGCD(int a,int b){
     return best;
 }
 
+long int EuclidGCD(long a,long b){
+
+    if (b == 0){ 
+        return a;
+    }
+    else{
+       a = a % b;
+    }
+
+    return EuclidGCD(b,a);
+}
+
 int main (void){
 
     int numberOne;
@@ -20,10 +32,16 @@ int main (void){
     scanf("%d", &numberOne);
     scanf("%d", &numberTwo);
 
-    printf("GCD(%d,%d) = %d",
+    printf("NaiveGCD(%d,%d) = %d",
         numberOne,
         numberTwo,
         NaiveGCD(numberOne, numberTwo)
+        );
+
+    printf("\naEuclidGCD(%d,%d) = %ld",
+        numberOne,
+        numberTwo,
+        EuclidGCD(numberOne, numberTwo)
         );
 
     return 0;
